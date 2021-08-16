@@ -1,6 +1,15 @@
 #!/bin/bash
 # Bash Menu Script Example
-input=$1
+display=$'\e[31mCONSOLE\e[0m:'
+# Color variables
+PURPLE=$'\e\[35m'
+YELLOW=$'\e[33m'
+GREEN=$'\e[32m'
+BLUE=$'\e[34m'
+CYAN=$'\e[36m'
+NC=$'\e[0m'
+BOLD="\033[1m"
+
 echo ""
 echo "Deployment Menu: What would you like to do?"
 echo ""
@@ -11,19 +20,19 @@ do
     case $opt in
         "Create Package")
             echo ""
-	    echo "CONSOLE: Running create package script..."
+	    echo "$display Running create package script..."
             bash ./Scripts/Build-Deployment-Package.sh
 	    break
 	    ;;
         "Merge to Master")
 	    echo ""
-            echo "CONSOLE: Running merge to master script..."
+            echo "$display Running merge to master script..."
 	    bash ./Scripts/Merge-2-Master.sh
             break
 	    ;;
         "Clean Up")
   	    echo ""
-            echo "CONSOLE: Running clean up script..."
+            echo "$display Running clean up script..."
             bash ./Scripts/Cleanup.sh
 	    break
     	    ;;
